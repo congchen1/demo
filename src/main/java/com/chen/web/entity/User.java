@@ -3,9 +3,13 @@ package com.chen.web.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -5074721790277203191L;
     private Integer id;
 
     private String username;

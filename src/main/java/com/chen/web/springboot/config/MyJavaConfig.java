@@ -4,10 +4,12 @@ package com.chen.web.springboot.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.chen.web.springboot.interceptor.ListenerTest;
 import com.chen.web.springboot.interceptor.ServletTest;
 import com.chen.web.springboot.interceptor.TimeFilter;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -76,6 +78,17 @@ public class MyJavaConfig {
 
 
         return  filterRegistration;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Bean
+    public ServletListenerRegistrationBean listenerRegistration(){
+        ServletListenerRegistrationBean listenerRegistration =
+                new ServletListenerRegistrationBean(new ListenerTest());
+        return listenerRegistration;
     }
 
 }

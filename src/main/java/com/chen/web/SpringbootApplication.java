@@ -1,6 +1,9 @@
 package com.chen.web;
 
 import com.chen.web.itfc.EncodingConvertor;
+import com.chen.web.springboot.interceptor.ListenerTest;
+import com.chen.web.springboot.interceptor.ServletTest;
+import com.chen.web.springboot.interceptor.TimeFilter;
 import com.chenc.Cache;
 import com.chenc.CacheConfirguration;
 import org.springframework.boot.SpringApplication;
@@ -13,12 +16,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import java.util.EnumSet;
 import java.util.Map;
 
 //@Import(CacheConfirguration.class)
-//第三方jar资源问及爱你 自动配置解决方案  @Import 或在spring.factories中配置
+//第三方jar资源 自动配置解决方案  @Import 或在spring.factories中配置
 @SpringBootApplication
 public class SpringbootApplication extends SpringBootServletInitializer
         implements ServletContextInitializer
@@ -50,15 +55,9 @@ public class SpringbootApplication extends SpringBootServletInitializer
 
 
 
-
-
-
-
-
-
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        // 配置 Servlet
+////         配置 Servlet
 //        servletContext.addServlet("servletTest",new ServletTest())
 //                .addMapping("/servletTest");
 //        // 配置过滤器
@@ -66,7 +65,7 @@ public class SpringbootApplication extends SpringBootServletInitializer
 //                .addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST),true,"/*");
 //        // 配置监听器
 //        servletContext.addListener(new ListenerTest());
-//
+
 //        SpringApplication.run(DemoApplication.class, args);
     }
 }
